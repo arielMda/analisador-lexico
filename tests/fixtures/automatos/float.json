@@ -1,0 +1,16 @@
+{
+  "nome": "float",
+  "token": "TT_FLOAT",
+  "prioridade": 20,
+  "converter": "float",
+  "estados": ["q0", "q1", "q2", "q3"],
+  "alfabeto": { "digito": "0123456789", "ponto": "." },
+  "transicoes": {
+    "q0": { "digito": "q1" },
+    "q1": { "digito": "q1", "ponto": "q2" },
+    "q2": { "digito": "q3" },
+    "q3": { "digito": "q3" }
+  },
+  "inicial": "q0",
+  "finais": ["q3"]
+}

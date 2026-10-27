@@ -1,0 +1,17 @@
+{
+  "nome": "string",
+  "token": "TT_STRING",
+  "prioridade": 20,
+  "converter": "string",
+  "estados": ["q0", "q1", "q2"],
+  "alfabeto": {
+    "aspas": "\"",
+    "outro": { "exceto": "\n" }
+  },
+  "transicoes": {
+    "q0": { "aspas": "q1" },
+    "q1": { "outro": "q1", "aspas": "q2" }
+  },
+  "inicial": "q0",
+  "finais": ["q2"]
+}

@@ -1,0 +1,15 @@
+{
+  "nome": "LinguagemDeTeste",
+  "automatos": [
+    "automatos/identificador.json",
+    "automatos/inteiro.json",
+    "automatos/float.json",
+    "automatos/string.json",
+    "automatos/operadores.json",
+    "automatos/comentario.json"
+  ],
+  "palavras_reservadas": {
+    "se": "TT_SE",
+    "senao": "TT_SENAO"
+  }
+}
