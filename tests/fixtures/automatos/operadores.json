@@ -1,0 +1,14 @@
+{
+  "nome": "operador",
+  "token": "TT_OP",
+  "prioridade": 30,
+  "estados": ["q0", "mais", "menor", "menor_igual", "exclamacao", "diferente"],
+  "alfabeto": { "mais": "+", "menor": "<", "igual": "=", "exclamacao": "!" },
+  "transicoes": {
+    "q0": { "mais": "mais", "menor": "menor", "exclamacao": "exclamacao" },
+    "menor": { "igual": "menor_igual" },
+    "exclamacao": { "igual": "diferente" }
+  },
+  "inicial": "q0",
+  "finais": ["mais", "menor", "menor_igual", "diferente"]
+}

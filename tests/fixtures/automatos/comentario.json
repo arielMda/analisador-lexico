@@ -1,0 +1,17 @@
+{
+  "nome": "comentario",
+  "token": "TT_COMENTARIO",
+  "prioridade": 0,
+  "ignorar": true,
+  "estados": ["q0", "q1"],
+  "alfabeto": {
+    "cerquilha": "#",
+    "outro": { "exceto": "\n" }
+  },
+  "transicoes": {
+    "q0": { "cerquilha": "q1" },
+    "q1": { "cerquilha": "q1", "outro": "q1" }
+  },
+  "inicial": "q0",
+  "finais": ["q1"]
+}
