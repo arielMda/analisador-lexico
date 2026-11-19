@@ -1,0 +1,12 @@
+{
+  "nome": "delimitador",
+  "token": "TT_DELIM",
+  "prioridade": 30,
+  "estados": ["q0", "q1"],
+  "alfabeto": { "delimitador": "(){};" },
+  "transicoes": {
+    "q0": { "delimitador": "q1" }
+  },
+  "inicial": "q0",
+  "finais": ["q1"]
+}

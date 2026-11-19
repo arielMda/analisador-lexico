@@ -1,0 +1,17 @@
+{
+  "nome": "identificador",
+  "token": "TT_IDENT",
+  "prioridade": 10,
+  "reservadas": true,
+  "estados": ["q0", "q1"],
+  "alfabeto": {
+    "letra": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",
+    "digito": "0123456789"
+  },
+  "transicoes": {
+    "q0": { "letra": "q1" },
+    "q1": { "letra": "q1", "digito": "q1" }
+  },
+  "inicial": "q0",
+  "finais": ["q1"]
+}
