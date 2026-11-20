@@ -1,0 +1,12 @@
+{
+  "nome": "atribuicao",
+  "token": "TT_ATRIB",
+  "prioridade": 30,
+  "estados": ["q0", "q1"],
+  "alfabeto": { "igual": "=" },
+  "transicoes": {
+    "q0": { "igual": "q1" }
+  },
+  "inicial": "q0",
+  "finais": ["q1"]
+}

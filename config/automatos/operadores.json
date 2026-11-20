@@ -1,0 +1,34 @@
+{
+  "nome": "operador",
+  "token": "TT_OP",
+  "prioridade": 30,
+  "estados": ["q0", "mais", "menos", "vezes", "barra", "menor", "menor_igual", "maior", "maior_igual", "igual", "igual_igual", "exclamacao", "diferente"],
+  "alfabeto": {
+    "mais": "+",
+    "menos": "-",
+    "vezes": "*",
+    "barra": "/",
+    "menor": "<",
+    "maior": ">",
+    "igual": "=",
+    "exclamacao": "!"
+  },
+  "transicoes": {
+    "q0": {
+      "mais": "mais",
+      "menos": "menos",
+      "vezes": "vezes",
+      "barra": "barra",
+      "menor": "menor",
+      "maior": "maior",
+      "igual": "igual",
+      "exclamacao": "exclamacao"
+    },
+    "menor": { "igual": "menor_igual" },
+    "maior": { "igual": "maior_igual" },
+    "igual": { "igual": "igual_igual" },
+    "exclamacao": { "igual": "diferente" }
+  },
+  "inicial": "q0",
+  "finais": ["mais", "menos", "vezes", "barra", "menor", "menor_igual", "maior", "maior_igual", "igual_igual", "diferente"]
+}

@@ -1,24 +1,45 @@
 # Qual a função deste arquivo?
-# Ele é o terminal para o usuário interagir com nossa linguagem:
-# lê o texto digitado e passa pelo lexer novo (pacote lexer/, autômatos em JSON).
+# Ele é o terminal para o usuário interagir com nossa linguagem: lê o texto digitado,
+# passa pelo lexer (autômatos em JSON), pelo parser e executa. As variáveis ficam
+# guardadas enquanto o shell estiver aberto.
+#
+# Blocos em várias linhas: se o código ainda está incompleto (ex.: um "{" sem o "}"),
+# o shell mostra o prompt "... >" e espera mais linhas. Linha vazia cancela.
 
 from pathlib import Path
 
-from lexer import Linguagem, tokenizar
+from interpretador import ErroSintatico, Interpretador, formatar, rodar
+from lexer import Linguagem
 
-# Por enquanto usa a linguagem de teste; troque quando a definitiva existir
-LINGUAGEM = Linguagem.de_arquivo(Path(__file__).parent / "tests" / "fixtures" / "linguagem.json")
+LINGUAGEM = Linguagem.de_arquivo(Path(__file__).parent / "config" / "linguagem.json")
+
+interpretador = Interpretador()
+pendente = ""  # linhas já digitadas de um comando ainda incompleto
+
+
+def mostrar_valor(valor):
+    print(formatar(valor, aspas=True))
+
 
 while True:
     try:
-        text = input("basic > ")
+        linha = input("... > " if pendente else "basic > ")
     except (EOFError, KeyboardInterrupt):
         break
 
-    tokens, erros = tokenizar(LINGUAGEM, text)
+    if pendente and not linha.strip():
+        print("(entrada cancelada)")
+        pendente = ""
+        continue
 
-    if erros:
-        for erro in erros:
-            print(erro.como_texto())
-    else:
-        print(tokens)
+    texto = pendente + linha + "\n"
+    erros = rodar(LINGUAGEM, texto, interpretador, eco=mostrar_valor)
+
+    incompleto = len(erros) == 1 and isinstance(erros[0], ErroSintatico) and erros[0].fim_inesperado
+    if incompleto:
+        pendente = texto
+        continue
+
+    pendente = ""
+    for erro in erros:
+        print(erro.como_texto())

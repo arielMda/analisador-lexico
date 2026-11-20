@@ -1,0 +1,14 @@
+{
+  "nome": "inteiro",
+  "token": "TT_INT",
+  "prioridade": 20,
+  "converter": "int",
+  "estados": ["q0", "q1"],
+  "alfabeto": { "digito": "0123456789" },
+  "transicoes": {
+    "q0": { "digito": "q1" },
+    "q1": { "digito": "q1" }
+  },
+  "inicial": "q0",
+  "finais": ["q1"]
+}
