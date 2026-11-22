@@ -1,4 +1,4 @@
-# analisador-lexico
+# analisador-lexico 
 Analisador léxico de uma linguagem simplificada criada em Python.
 Usamos esta [playlist de vídeos] como base para nosso projeto. (https://www.youtube.com/watch?v=Eythq9848Fg&list=PLZQftyCk7_SdoVexSmwy_tBgs7P0b97yD)
 
