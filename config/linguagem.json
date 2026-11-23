@@ -1,0 +1,18 @@
+{
+  "nome": "LinguagemSimplificada",
+  "automatos": [
+    "automatos/identificador.json",
+    "automatos/inteiro.json",
+    "automatos/float.json",
+    "automatos/string.json",
+    "automatos/operadores.json",
+    "automatos/atribuicao.json",
+    "automatos/delimitadores.json",
+    "automatos/comentario.json"
+  ],
+  "palavras_reservadas": {
+    "se": "TT_SE",
+    "senao": "TT_SENAO",
+    "mostrar": "TT_MOSTRAR"
+  }
+}
